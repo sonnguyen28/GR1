@@ -15,10 +15,6 @@ const dataTest = [
       district: {
         name: 'Ba Vì',
         areaCode: '10',
-        ward: {
-          name: 'Ba Vì',
-          prefix: 'Xã',
-        },
       },
     },
   },
@@ -33,17 +29,13 @@ const dataTest = [
       district: {
         name: 'Phú Xuyên',
         areaCode: '11',
-        ward: {
-          name: 'Phượng Dực',
-          prefix: 'Xã',
-        },
       },
     },
   },
 ].map((item) => ({
   ...item,
   typeSchool: item.typeSchool ? 'Chuyên' : 'Không chuyên',
-  address: item.address.district.ward.name + ', ' + item.address.district.name + ', ' + 'Hà Nội',
+  address: item.address.district.name + ', ' + 'Hà Nội',
   areaCode: item.address.district.areaCode,
   district: item.address.district.name,
 }))
@@ -79,7 +71,7 @@ const columns = [
   {
     title: 'Tên Trường',
     dataIndex: 'name',
-    width: '20%',
+    width: '15%',
   },
   {
     title: 'Chỉ tiêu',
@@ -87,10 +79,15 @@ const columns = [
     sorter: (a, b) => a.slot - b.slot,
   },
   {
+    title: 'Đã tuyển',
+    dataIndex: 'slot',
+    sorter: (a, b) => a.slot - b.slot,
+  },
+  {
     title: 'Điểm chuẩn nguyện vọng 1',
     dataIndex: 'admissionScore',
     sorter: (a, b) => a.admissionScore - b.admissionScore,
-    width: '20%',
+    width: '15%',
   },
   {
     title: 'Loại trường',
