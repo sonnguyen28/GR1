@@ -12,6 +12,8 @@ import {
 } from './authSlice'
 //npm install axios
 
+import { getSchoolsStart, getSchoolsSuccess, getSchoolsFailed } from './schoolSlice'
+
 const myURL = 'http://localhost:8000'
 
 export const loginUser = async (user, dispatch, navigate) => {
@@ -46,5 +48,15 @@ export const logOut = async (dispatch, id, navigate, accessToken, axiosJWT) => {
     navigate('/login')
   } catch (err) {
     dispatch(logOutFailed())
+  }
+}
+
+export const getAllSchools = async (token, dispatch, axios) => {
+  dispatch(getSchoolsStart())
+  try {
+    const res = await axios.get(myURL + '/v1/schools/')
+    dispatch(getSchoolsSuccess(res.data))
+  } catch (err) {
+    dispatch(getSchoolsFailed())
   }
 }

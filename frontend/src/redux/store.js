@@ -1,6 +1,8 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import authReducer from './authSlice'
 import navReducer from './navSlice'
+import schoolReducer from './schoolSlice'
+
 import {
   persistStore,
   persistReducer,
@@ -19,7 +21,7 @@ const persistConfig = {
   storage,
   blacklist: ['nav'],
 }
-const rootReducer = combineReducers({ auth: authReducer, nav: navReducer })
+const rootReducer = combineReducers({ auth: authReducer, nav: navReducer, schools: schoolReducer })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
