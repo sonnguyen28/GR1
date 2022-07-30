@@ -35,10 +35,6 @@ const schoolSchema = new mongoose.Schema({
     district: {
       name: String,
       areaCode: String,
-      ward: {
-        name: String,
-        prefix: String,
-      },
     },
   },
 });
