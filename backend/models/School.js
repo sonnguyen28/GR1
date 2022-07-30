@@ -13,18 +13,29 @@ const schoolSchema = new mongoose.Schema({
     unique: true,
   },
   admissionScore: {
-    type: String,
-    required: true,
+    nomarl: String,
+    gifted: {
+      van: String,
+      toan: String,
+      ly: String,
+      sinh: String,
+      dia: String,
+      tin: String,
+      anh: String,
+      trung: String,
+      nga: String,
+      phap: String,
+    },
   },
   slot: {
     type: String,
     required: true,
   },
-  studentList: [
+  studentsList: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Student",
-      default: null
+      default: [],
     },
   ],
   typeSchool: {
